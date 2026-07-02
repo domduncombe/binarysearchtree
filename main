@@ -1,0 +1,45 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package binarysearchtree;
+
+/**
+ *
+ * @author dduncombe
+ */
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        Tree tree = new Tree();
+        
+        tree.printTreeInOrder();
+        
+        System.out.println(tree.search(16));
+        
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(2);
+        tree.insert(9);
+        tree.insert(10);
+        tree.insert(3);
+        tree.insert(16);
+        tree.insert(5);
+        tree.insert(11);
+        
+        System.out.println(tree.search(16));
+        System.out.println(tree.search(100));
+        System.out.println(tree.search(0));
+        System.out.println(tree.search(3));
+
+        tree.printTreeInOrder();
+        
+    }
+    
+}
