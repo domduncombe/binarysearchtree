@@ -1,0 +1,147 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package binarysearchtree;
+
+/**
+ *
+ * @author dduncombe
+ */
+public class Tree {
+    
+    Node root;
+    
+    public Tree() {
+        root = null;
+    }
+    
+    public void insert(int key) {
+        
+        Node newNode = new Node(key);
+        
+        if (root == null) {
+            
+            root = newNode;
+            
+        }
+        else {
+            
+            Node currentNode = root;
+            Node childNode = root;
+            
+            while(childNode != null) {
+                
+                currentNode = childNode;
+                
+                if (newNode.key < currentNode.key) {
+                      
+                    childNode = currentNode.getLeft();
+                    System.out.println(currentNode.key);
+                    
+                }
+                else {
+                    
+                    childNode = currentNode.getRight();
+                    System.out.println(currentNode.key);
+                    
+                }
+                
+            }
+            
+            if (newNode.key < currentNode.key) {
+                
+                currentNode.setLeft(newNode);
+                System.out.println("inserted "+newNode.key);
+                
+            }
+            else {
+                
+                currentNode.setRight(newNode);
+                System.out.println("inserted "+newNode.key);
+                
+            }
+                 
+        }
+        
+    }
+    
+    public boolean search(int key) {
+        
+        
+        if (root == null) {
+            
+            return false;
+            
+        }
+        else {
+            
+            Node currentNode = root;
+            Node childNode = root;
+            
+            while(childNode != null) {
+                
+                currentNode = childNode;
+                
+                if (key < currentNode.key) {
+                      
+                    childNode = currentNode.getLeft();
+                    System.out.println(currentNode.key);
+                    
+                }
+                else if (key > currentNode.key) {
+                    
+                    childNode = currentNode.getRight();
+                    System.out.println(currentNode.key);
+                    
+                }
+                else {
+                    
+                    return true;
+                }
+                
+            }
+            
+            return false;
+                 
+        }
+        
+    }
+    
+    public void printTreeInOrder() {
+        
+        if (root == null) {
+            
+            System.out.println("Tree is empty");
+            
+        }
+        else {
+            
+            printTree(root);
+            
+        }
+        
+    }
+    
+    public void printTree(Node root) {
+        
+        
+        if (root == null) {
+            
+            
+        }
+        else {
+            
+            printTree(root.getLeft());
+            
+            System.out.println(root.getKey());
+            
+            printTree(root.getRight());
+                 
+        }
+        
+    }
+    
+}
