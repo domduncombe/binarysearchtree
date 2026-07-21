@@ -1,2 +1,2 @@
 # binarysearchtree
-binary search tree i wrote for a job interview
+binary search tree I wrote for a job interview
